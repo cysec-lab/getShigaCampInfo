@@ -25,11 +25,11 @@ def makedict(url):  #辞書型配列を作成
 
 	#print(dic.keys())
 	#print(dic.values())
-
-	#with open('test.csv', 'w') as f:
-		#writer = csv.writer(f)
-		#writer.writerow(dic.keys())
-		#writer.writerow(dic.values())
+	filename = url.replace('/', '').replace('.', '').replace(':', '')
+	with open(filename, 'w') as f:
+		writer = csv.writer(f)
+		writer.writerow(dic.keys())
+		writer.writerow(dic.values())
 
 
 def get_wappalyzer(url):
