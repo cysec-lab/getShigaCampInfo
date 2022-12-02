@@ -5,5 +5,4 @@ with open('sample.txt', 'r') as f:
     print(kw_list)
 
 for i in kw_list:
-    print(i)
     main.makedict(i)

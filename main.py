@@ -18,7 +18,7 @@ def makedict(url):  #辞書型配列を作成
 		elif dic[i[0]]==None:
 			dic[i[0]]=i[1]
 
-	print(dic)
+	#print(dic)
 
 #csvに保存するコードを書く
 #見やすいように自分で変更を行う
@@ -26,10 +26,26 @@ def makedict(url):  #辞書型配列を作成
 	#print(dic.keys())
 	#print(dic.values())
 	filename = url.replace('/', '').replace('.', '').replace(':', '')
+	version = ""
+
+	
+	if 'WordPress' in  dic:
+		version = dic["WordPress"]
+	else:
+		version = "None"
+
+	print(url + ",version :"+ version)
+
+	with open('output.csv', 'a') as f:
+		print(url + ","+ version, file=f)
+
+
+	'''
 	with open(filename, 'w') as f:
 		writer = csv.writer(f)
 		writer.writerow(dic.keys())
 		writer.writerow(dic.values())
+		'''
 
 
 def get_wappalyzer(url):
