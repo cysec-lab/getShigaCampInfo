@@ -5,7 +5,7 @@ from wplzer import Wappalyzer, WebPage
 import hashlib
 import csv
 
-def makedict(url):
+def makedict(url):  #辞書型配列を作成
 	arr=[]
 	arr.extend(get_serverheader(url))
 	arr.extend(get_tech(url))
@@ -23,13 +23,13 @@ def makedict(url):
 #csvに保存するコードを書く
 #見やすいように自分で変更を行う
 
-	print(dic.keys())
-	print(dic.values())
+	#print(dic.keys())
+	#print(dic.values())
 
-	with open('test.csv', 'w') as f:
-		writer = csv.writer(f)
-		writer.writerow(dic.keys())
-		writer.writerow(dic.values())
+	#with open('test.csv', 'w') as f:
+		#writer = csv.writer(f)
+		#writer.writerow(dic.keys())
+		#writer.writerow(dic.values())
 
 
 def get_wappalyzer(url):
@@ -100,7 +100,8 @@ def page2md5(url):
 		return e.reason
 
 if __name__ == '__main__':
-	url = 'https://cysec.ise.ritsumei.ac.jp/'
+	url = 'https://www.kinkiyoken.co.jp/'
+	#url = 'https://cysec.ise.ritsumei.ac.jp/'
 	#url = "http://www.rcc.ritsumei.ac.jp/"
 	print("url:"+url)
 	makedict(url)
