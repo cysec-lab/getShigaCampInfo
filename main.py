@@ -10,10 +10,11 @@ def makedict(url):  #辞書型配列を作成
 	arr.extend(get_serverheader(url))
 	arr.extend(get_tech(url))
 	arr.extend(get_wappalyzer(url))
-	arr.extend(get_etag(url))
+	#arr.extend(get_etag(url))
 	dic={}
+	print(arr)
 	for i in arr:
-		if i[0] not in dic:
+		if i[0] not in dic and len(i)==2:
 			dic[i[0]]=i[1]
 		elif dic[i[0]]==None:
 			dic[i[0]]=i[1]
@@ -31,6 +32,8 @@ def makedict(url):  #辞書型配列を作成
 	
 	if 'WordPress' in  dic:
 		version = dic["WordPress"]
+		if version==None:
+			version="no version"
 	else:
 		version = "None"
 
@@ -116,8 +119,9 @@ def page2md5(url):
 		return e.reason
 
 if __name__ == '__main__':
-	url = 'https://www.kinkiyoken.co.jp/'
+	#url = 'https://www.kinkiyoken.co.jp/'
 	#url = 'https://cysec.ise.ritsumei.ac.jp/'
 	#url = "http://www.rcc.ritsumei.ac.jp/"
+
 	print("url:"+url)
 	makedict(url)
